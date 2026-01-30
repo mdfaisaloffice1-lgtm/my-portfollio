@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Faisal Uddin - Let's Build Your Shopify Store</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Sora:wght@300;400;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Manrope:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --charcoal-black: #0F172A; --electric-blue: #2563EB; --soft-gray: #F1F5F9; --deep-background: #0A2540; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--charcoal-black); color: var(--soft-gray); overflow-x: hidden; }
+        h1, h2, h3 { font-family: 'Anton', sans-serif; text-transform: uppercase; letter-spacing: 1px; }
+        h4, h5 { font-family: 'Sora', sans-serif; }
+        .manrope { font-family: 'Manrope', sans-serif; }
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: var(--charcoal-black); }
+        ::-webkit-scrollbar-thumb { background: var(--electric-blue); border-radius: 5px; }
+        .strategic-email { position: relative; display: inline-flex; align-items: center; gap: 10px; padding: 16px 32px; background: linear-gradient(135deg, var(--electric-blue), #1d4ed8); color: white; text-decoration: none; border-radius: 12px; font-weight: 600; font-size: 1.1rem; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); box-shadow: 0 10px 30px rgba(37, 99, 235, 0.3); overflow: hidden; }
+        .strategic-email::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent); transition: left 0.5s; }
+        .strategic-email:hover::before { left: 100%; }
+        .strategic-email:hover { transform: translateY(-5px) scale(1.05); box-shadow: 0 20px 50px rgba(37, 99, 235, 0.5); }
+        nav { position: fixed; top: 0; width: 100%; z-index: 1000; background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(37, 99, 235, 0.2); }
+        .hero-gradient { background: linear-gradient(135deg, var(--deep-background) 0%, var(--charcoal-black) 100%); position: relative; overflow: hidden; }
+        .hero-gradient::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at 20% 50%, rgba(37, 99, 235, 0.15) 0%, transparent 50%); }
+        .service-card { background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(10, 37, 64, 0.5) 100%); border: 1px solid rgba(37, 99, 235, 0.2); border-radius: 16px; padding: 40px; transition: all 0.4s ease; }
+        .service-card:hover { transform: translateY(-10px); border-color: var(--electric-blue); box-shadow: 0 20px 60px rgba(37, 99, 235, 0.3); }
+        .contact-method { display: flex; align-items: center; gap: 15px; padding: 20px; background: rgba(37, 99, 235, 0.1); border: 1px solid rgba(37, 99, 235, 0.2); border-radius: 12px; transition: all 0.3s ease; }
+        .contact-method:hover { background: rgba(37, 99, 235, 0.2); border-color: var(--electric-blue); transform: translateX(10px); }
+        .social-icon { width: 45px; height: 45px; display: inline-flex; align-items: center; justify-content: center; background: rgba(37, 99, 235, 0.1); border: 1px solid rgba(37, 99, 235, 0.3); border-radius: 10px; color: var(--electric-blue); text-decoration: none; transition: all 0.3s ease; }
+        .social-icon:hover { background: var(--electric-blue); color: white; transform: translateY(-3px); }
+        .mobile-menu { display: none; position: fixed; top: 70px; left: 0; right: 0; background: rgba(15, 23, 42, 0.98); backdrop-filter: blur(10px); padding: 20px; }
+        .mobile-menu.active { display: block; }
+        input, textarea, select { width: 100%; padding: 14px 18px; background: rgba(37, 99, 235, 0.05); border: 1px solid rgba(37, 99, 235, 0.2); border-radius: 8px; color: var(--soft-gray); font-family: 'Plus Jakarta Sans', sans-serif; transition: all 0.3s ease; }
+        input:focus, textarea:focus, select:focus { outline: none; border-color: var(--electric-blue); background: rgba(37, 99, 235, 0.1); }
+        button[type="submit"] { width: 100%; padding: 16px; background: linear-gradient(135deg, var(--electric-blue), #1d4ed8); color: white; border: none; border-radius: 8px; font-weight: 600; font-size: 1.1rem; cursor: pointer; transition: all 0.3s ease; }
+        button[type="submit"]:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(37, 99, 235, 0.4); }
+        @media (max-width: 768px) { h1 { font-size: 2.5rem !important; } }
+    </style>
+</head>
+<body>
+    <nav class="py-4">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold"><span class="text-white">FAISAL</span><span class="text-blue-500">UDDIN</span></a>
+            <div class="hidden md:flex space-x-8">
+                <a href="index.html" class="text-gray-300 hover:text-blue-500 transition">Home</a>
+                <a href="about.html" class="text-gray-300 hover:text-blue-500 transition">About</a>
+                <a href="services.html" class="text-gray-300 hover:text-blue-500 transition">Services</a>
+                <a href="case-studies.html" class="text-gray-300 hover:text-blue-500 transition">Case Studies</a>
+                <a href="contact.html" class="text-white hover:text-blue-500 transition">Contact</a>
+            </div>
+            <button class="md:hidden text-white" id="mobileMenuBtn"><i data-lucide="menu" class="w-6 h-6"></i></button>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="index.html" class="block py-3 text-gray-300 hover:text-blue-500">Home</a>
+            <a href="about.html" class="block py-3 text-gray-300 hover:text-blue-500">About</a>
+            <a href="services.html" class="block py-3 text-gray-300 hover:text-blue-500">Services</a>
+            <a href="case-studies.html" class="block py-3 text-gray-300 hover:text-blue-500">Case Studies</a>
+            <a href="contact.html" class="block py-3 text-white hover:text-blue-500">Contact</a>
+        </div>
+    </nav>
+
+    <section class="hero-gradient pt-32 pb-20 relative">
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-4xl mx-auto text-center">
+                <h1 class="text-6xl md:text-7xl text-white mb-6">LET'S <span class="text-blue-500">CONNECT</span></h1>
+                <p class="text-xl md:text-2xl text-gray-300 manrope leading-relaxed">Ready to transform your Shopify store? I respond to every message within 24 hours. Let's discuss your project.</p>
+            </div>
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 h-64 opacity-10"><img src="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w=1200&auto=format&fit=crop&q=80" alt="Contact" class="w-full h-full object-cover"></div>
+    </section>
+
+    <section class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+                <div>
+                    <h2 class="text-4xl text-white mb-8">SEND ME A <span class="text-blue-500">MESSAGE</span></h2>
+                    <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="space-y-6">
+                        <input type="hidden" name="form-name" value="contact" />
+                        <p class="hidden"><label>Don't fill this out: <input name="bot-field" /></label></p>
+                        
+                        <div>
+                            <label class="block text-gray-300 mb-2 font-semibold">Your Name</label>
+                            <input type="text" name="name" required placeholder="John Doe">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-300 mb-2 font-semibold">Email Address</label>
+                            <input type="email" name="email" required placeholder="john@example.com">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-300 mb-2 font-semibold">Phone Number (Optional)</label>
+                            <input type="tel" name="phone" placeholder="+1 (555) 000-0000">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-300 mb-2 font-semibold">Store URL (if applicable)</label>
+                            <input type="url" name="store-url" placeholder="https://yourstore.myshopify.com">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-300 mb-2 font-semibold">What Service Do You Need?</label>
+                            <select name="service" required>
+                                <option value="">Select a service...</option>
+                                <option value="custom-liquid">Custom Liquid Development</option>
+                                <option value="speed">Speed Optimization</option>
+                                <option value="cro">Conversion Rate Optimization</option>
+                                <option value="payment">Payment Gateway Integration</option>
+                                <option value="email">Email Marketing Automation</option>
+                                <option value="automation">Workflow Automation</option>
+                                <option value="bug-fix">Bug Fixing</option>
+                                <option value="migration">Platform Migration</option>
+                                <option value="maintenance">Ongoing Maintenance</option>
+                                <option value="other">Other / Not Sure</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-300 mb-2 font-semibold">Project Details</label>
+                            <textarea name="message" rows="6" required placeholder="Tell me about your project, challenges, and goals..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="flex items-center justify-center gap-3">
+                            <i data-lucide="send" class="w-6 h-6"></i>
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+                
+                <div>
+                    <h2 class="text-4xl text-white mb-8">OTHER WAYS TO <span class="text-blue-500">REACH ME</span></h2>
+                    
+                    <div class="space-y-4 mb-12">
+                        <a href="mailto:faisaluddinbd155@gmail.com" class="contact-method">
+                            <div class="w-12 h-12 flex items-center justify-center bg-blue-500 rounded-lg"><i data-lucide="mail" class="w-6 h-6 text-white"></i></div>
+                            <div><p class="text-sm text-gray-400">Email</p><p class="text-white font-semibold">faisaluddinbd155@gmail.com</p></div>
+                        </a>
+                        
+                        <a href="https://wa.me/8801602210817" target="_blank" class="contact-method">
+                            <div class="w-12 h-12 flex items-center justify-center bg-green-500 rounded-lg"><i data-lucide="message-circle" class="w-6 h-6 text-white"></i></div>
+                            <div><p class="text-sm text-gray-400">WhatsApp</p><p class="text-white font-semibold">+880 1602-210817</p></div>
+                        </a>
+                        
+                        <div class="contact-method">
+                            <div class="w-12 h-12 flex items-center justify-center bg-blue-500 rounded-lg"><i data-lucide="message-square" class="w-6 h-6 text-white"></i></div>
+                            <div><p class="text-sm text-gray-400">WeChat</p><p class="text-white font-semibold">Faisaluddin155</p></div>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card">
+                        <h3 class="text-2xl text-white mb-4">SOCIAL MEDIA</h3>
+                        <p class="text-gray-300 mb-6">Follow me for Shopify tips, updates, and behind-the-scenes</p>
+                        <div class="flex space-x-4">
+                            <a href="https://facebook.com/Faisaluddin155" target="_blank" class="social-icon">
+                                <i data-lucide="facebook" class="w-5 h-5"></i>
+                            </a>
+                            <a href="https://instagram.com/Faisaluddin155" target="_blank" class="social-icon">
+                                <i data-lucide="instagram" class="w-5 h-5"></i>
+                            </a>
+                            <a href="https://twitter.com/Faisaluddin155" target="_blank" class="social-icon">
+                                <i data-lucide="twitter" class="w-5 h-5"></i>
+                            </a>
+                            <a href="https://linkedin.com/in/Faisaluddin155" target="_blank" class="social-icon">
+                                <i data-lucide="linkedin" class="w-5 h-5"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card mt-6">
+                        <h3 class="text-2xl text-white mb-4">RESPONSE TIME</h3>
+                        <div class="flex items-center gap-3 mb-3">
+                            <i data-lucide="clock" class="w-6 h-6 text-blue-500"></i>
+                            <p class="text-gray-300">I respond within <span class="text-white font-bold">24 hours</span></p>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="globe" class="w-6 h-6 text-blue-500"></i>
+                            <p class="text-gray-300">Available for clients <span class="text-white font-bold">worldwide</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-slate-900">
+        <div class="container mx-auto px-6 text-center max-w-4xl">
+            <h2 class="text-4xl md:text-5xl text-white mb-6">WHAT HAPPENS <span class="text-blue-500">NEXT?</span></h2>
+            <div class="grid md:grid-cols-3 gap-8 mt-12">
+                <div class="service-card"><div class="text-5xl font-bold text-blue-500 mb-4">1</div><h4 class="text-xl text-white mb-3">You Send a Message</h4><p class="text-gray-300">Fill out the form or email me directly with your project details.</p></div>
+                <div class="service-card"><div class="text-5xl font-bold text-blue-500 mb-4">2</div><h4 class="text-xl text-white mb-3">We Discuss Your Needs</h4><p class="text-gray-300">I'll respond within 24 hours to schedule a call and understand your goals.</p></div>
+                <div class="service-card"><div class="text-5xl font-bold text-blue-500 mb-4">3</div><h4 class="text-xl text-white mb-3">I Create Your Solution</h4><p class="text-gray-300">You receive a custom proposal and timeline for your project.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-slate-950 py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div><h3 class="text-2xl font-bold mb-4"><span class="text-white">FAISAL</span><span class="text-blue-500">UDDIN</span></h3><p class="text-gray-400 mb-4">Senior Shopify Developer specializing in custom Liquid solutions.</p><a href="mailto:faisaluddinbd155@gmail.com" class="text-blue-400 hover:text-blue-300">faisaluddinbd155@gmail.com</a></div>
+                <div><h5 class="text-white font-bold mb-4">Quick Links</h5><ul class="space-y-2"><li><a href="index.html" class="text-gray-400 hover:text-blue-400 flex items-center gap-2"><i data-lucide="chevron-right" class="w-4 h-4"></i> Home</a></li><li><a href="about.html" class="text-gray-400 hover:text-blue-400 flex items-center gap-2"><i data-lucide="chevron-right" class="w-4 h-4"></i> About</a></li><li><a href="services.html" class="text-gray-400 hover:text-blue-400 flex items-center gap-2"><i data-lucide="chevron-right" class="w-4 h-4"></i> Services</a></li><li><a href="case-studies.html" class="text-gray-400 hover:text-blue-400 flex items-center gap-2"><i data-lucide="chevron-right" class="w-4 h-4"></i> Case Studies</a></li></ul></div>
+                <div><h5 class="text-white font-bold mb-4">Services</h5><ul class="space-y-2"><li><a href="services.html" class="text-gray-400 hover:text-blue-400 flex items-center gap-2"><i data-lucide="chevron-right" class="w-4 h-4"></i> Custom Liquid</a></li><li><a href="services.html" class="text-gray-400 hover:text-blue-400 flex items-center gap-2"><i data-lucide="chevron-right" class="w-4 h-4"></i> Speed Optimization</a></li><li><a href="services.html" class="text-gray-400 hover:text-blue-400 flex items-center gap-2"><i data-lucide="chevron-right" class="w-4 h-4"></i> CRO</a></li><li><a href="services.html" class="text-gray-400 hover:text-blue-400 flex items-center gap-2"><i data-lucide="chevron-right" class="w-4 h-4"></i> Automation</a></li></ul></div>
+                <div><h5 class="text-white font-bold mb-4">Connect</h5><div class="flex space-x-4 mb-4"><a href="https://facebook.com/Faisaluddin155" target="_blank" class="social-icon"><i data-lucide="facebook" class="w-5 h-5"></i></a><a href="https://instagram.com/Faisaluddin155" target="_blank" class="social-icon"><i data-lucide="instagram" class="w-5 h-5"></i></a><a href="https://twitter.com/Faisaluddin155" target="_blank" class="social-icon"><i data-lucide="twitter" class="w-5 h-5"></i></a><a href="https://wa.me/8801602210817" target="_blank" class="social-icon"><i data-lucide="message-circle" class="w-5 h-5"></i></a></div><p class="text-gray-400 text-sm flex items-center gap-2"><i data-lucide="message-square" class="w-4 h-4"></i>WeChat: Faisaluddin155</p></div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center text-gray-400"><p>&copy; 2026 Faisal Uddin. All rights reserved. | Built with Custom Code, Not Apps.</p></div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() { document.getElementById('mobileMenu').classList.toggle('active'); });
+    </script>
+</body>
+</html>
