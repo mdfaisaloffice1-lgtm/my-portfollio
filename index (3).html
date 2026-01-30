@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faisal Uddin - Senior Shopify Developer | No-App Specialist</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Sora:wght@300;400;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- GSAP for Animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        charcoal: '#0F172A',
+                        electricBlue: '#2563EB',
+                        softGray: '#F1F5F9',
+                        deepBg: '#0A2540',
+                    },
+                    fontFamily: {
+                        anton: ['Anton', 'sans-serif'],
+                        sora: ['Sora', 'sans-serif'],
+                        jakarta: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Hero Background */
+        .hero-bg-gradient {
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(147, 51, 234, 0.1) 100%);
+        }
+        
+        .grid-overlay {
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Mobile Menu Animation */
+        .mobile-menu-open {
+            animation: slideDown 0.3s ease-out forwards;
+        }
+        
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                max-height: 0;
+            }
+            to {
+                opacity: 1;
+                max-height: 500px;
+            }
+        }
+
+        /* Ensure body doesn't scroll when mobile menu is open */
+        body.menu-open {
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body class="bg-charcoal text-white antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full top-0 z-50 bg-charcoal/98 backdrop-blur-md border-b border-white/10 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 md:h-20">
+                <!-- Logo -->
+                <div class="logo-container">
+                    <a href="index.html" class="text-xl md:text-2xl font-anton tracking-wider text-white hover:text-electricBlue transition-colors duration-300">
+                        FAISAL<span class="text-electricBlue">.</span>
+                    </a>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="font-sora font-semibold text-electricBlue text-sm hover:text-blue-400 transition-colors">Home</a>
+                    <a href="about.html" class="font-sora text-gray-300 text-sm hover:text-electricBlue transition-colors">About</a>
+                    <a href="services.html" class="font-sora text-gray-300 text-sm hover:text-electricBlue transition-colors">Services</a>
+                    <a href="case-studies.html" class="font-sora text-gray-300 text-sm hover:text-electricBlue transition-colors">Case Studies</a>
+                    <a href="contact.html" class="font-sora text-gray-300 text-sm hover:text-electricBlue transition-colors">Contact</a>
+                </div>
+                
+                <!-- Desktop CTA Button -->
+                <div class="hidden md:block">
+                    <a href="https://wa.me/8801602210817" target="_blank" class="bg-electricBlue hover:bg-blue-600 text-white font-bold px-6 py-3 rounded-lg transition-all duration-300 text-sm">
+                        Let's Talk
+                    </a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none p-2 hover:bg-white/10 rounded-lg transition-colors">
+                    <svg id="menu-open-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                    <svg id="menu-close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="md:hidden bg-deepBg border-t border-white/10 shadow-xl hidden overflow-hidden">
+            <div class="px-4 py-4 space-y-1">
+                <a href="index.html" class="block font-sora font-semibold text-electricBlue py-3 px-4 rounded-lg hover:bg-white/10 transition-all">
+                    🏠 Home
+                </a>
+                <a href="about.html" class="block font-sora text-white py-3 px-4 rounded-lg hover:bg-white/10 hover:text-electricBlue transition-all">
+                    👤 About Me
+                </a>
+                <a href="services.html" class="block font-sora text-white py-3 px-4 rounded-lg hover:bg-white/10 hover:text-electricBlue transition-all">
+                    ⚙️ Services
+                </a>
+                <a href="case-studies.html" class="block font-sora text-white py-3 px-4 rounded-lg hover:bg-white/10 hover:text-electricBlue transition-all">
+                    📊 Case Studies
+                </a>
+                <a href="contact.html" class="block font-sora text-white py-3 px-4 rounded-lg hover:bg-white/10 hover:text-electricBlue transition-all">
+                    📧 Contact
+                </a>
+                <div class="pt-2">
+                    <a href="https://wa.me/8801602210817" target="_blank" class="block bg-electricBlue hover:bg-blue-600 text-white font-bold px-4 py-3 rounded-lg text-center transition-all">
+                        💬 WhatsApp Chat
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section relative pt-20 md:pt-24 pb-16 md:pb-20 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <div class="hero-bg-gradient absolute inset-0"></div>
+            <div class="grid-overlay absolute inset-0"></div>
+        </div>
+        
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-16">
+            <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+                <!-- Text Content -->
+                <div class="text-center lg:text-left space-y-6">
+                    <div>
+                        <span class="inline-block font-sora text-xs sm:text-sm tracking-wider px-4 py-2 bg-electricBlue/20 text-electricBlue border border-electricBlue/30 rounded-full">
+                            ⚡ NO-PAID-APP SHOPIFY SPECIALIST
+                        </span>
+                    </div>
+                    
+                    <h1 class="font-anton text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight">
+                        CUSTOM CODE.<br/>
+                        <span class="text-electricBlue">ZERO APPS.</span><br/>
+                        PURE SPEED.
+                    </h1>
+                    
+                    <p class="font-jakarta text-base md:text-lg text-gray-300 leading-relaxed max-w-xl mx-auto lg:mx-0">
+                        I'm Faisal Uddin, a Senior Shopify Developer who builds lightning-fast stores using custom Liquid code instead of bloated paid apps. Since 2021, I've delivered 250+ high-performance Shopify stores for global clients.
+                    </p>
+                    
+                    <!-- Stats -->
+                    <div class="flex flex-wrap justify-center lg:justify-start gap-6 md:gap-8 pt-4">
+                        <div class="text-center">
+                            <div class="font-anton text-4xl md:text-5xl text-electricBlue">250+</div>
+                            <div class="font-sora text-xs md:text-sm text-gray-400 mt-1">Projects</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="font-anton text-4xl md:text-5xl text-electricBlue">5+</div>
+                            <div class="font-sora text-xs md:text-sm text-gray-400 mt-1">Years</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="font-anton text-4xl md:text-5xl text-electricBlue">100%</div>
+                            <div class="font-sora text-xs md:text-sm text-gray-400 mt-1">Custom</div>
+                        </div>
+                    </div>
+                    
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 pt-4">
+                        <a href="contact.html" class="bg-electricBlue hover:bg-blue-600 text-white font-bold px-8 py-4 rounded-lg transition-all text-center shadow-lg shadow-electricBlue/30">
+                            Start Your Project
+                        </a>
+                        <a href="case-studies.html" class="border-2 border-white/30 hover:border-electricBlue text-white font-bold px-8 py-4 rounded-lg transition-all text-center hover:bg-electricBlue/10">
+                            View Case Studies
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Hero Image -->
+                <div class="mt-8 lg:mt-0">
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&h=900&fit=crop" 
+                             alt="Development Workspace" 
+                             class="w-full h-auto object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-charcoal/60 via-transparent to-transparent"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- No-App Advantage Section -->
+    <section class="py-16 md:py-24 bg-deepBg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 md:mb-16">
+                <h2 class="font-anton text-3xl md:text-5xl lg:text-6xl mb-4 md:mb-6">
+                    THE <span class="text-electricBlue">NO-APP</span> ADVANTAGE
+                </h2>
+                <p class="font-jakarta text-base md:text-xl text-gray-300 max-w-3xl mx-auto">
+                    Why pay $50-200/month for apps when custom code is faster, cheaper, and gives you complete control?
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-6 md:gap-8">
+                <!-- Advantage 1 -->
+                <div class="bg-charcoal border border-white/10 rounded-2xl p-6 md:p-8 hover:border-electricBlue/50 transition-all">
+                    <div class="w-16 h-16 bg-electricBlue/20 rounded-full flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-electricBlue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-sora text-xl md:text-2xl font-bold mb-4">Lightning Fast</h3>
+                    <p class="font-jakarta text-sm md:text-base text-gray-400 leading-relaxed">
+                        Custom Liquid code loads 3-5x faster than bloated apps. Better SEO, higher conversions.
+                    </p>
+                </div>
+                
+                <!-- Advantage 2 -->
+                <div class="bg-charcoal border border-white/10 rounded-2xl p-6 md:p-8 hover:border-electricBlue/50 transition-all">
+                    <div class="w-16 h-16 bg-electricBlue/20 rounded-full flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-electricBlue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-sora text-xl md:text-2xl font-bold mb-4">Save Thousands</h3>
+                    <p class="font-jakarta text-sm md:text-base text-gray-400 leading-relaxed">
+                        One-time investment saves $600-2,400 yearly. No more monthly app fees forever.
+                    </p>
+                </div>
+                
+                <!-- Advantage 3 -->
+                <div class="bg-charcoal border border-white/10 rounded-2xl p-6 md:p-8 hover:border-electricBlue/50 transition-all">
+                    <div class="w-16 h-16 bg-electricBlue/20 rounded-full flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-electricBlue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-sora text-xl md:text-2xl font-bold mb-4">Complete Control</h3>
+                    <p class="font-jakarta text-sm md:text-base text-gray-400 leading-relaxed">
+                        Own your code. No third-party dependencies that break or increase prices.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="py-16 md:py-24 bg-charcoal">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 md:mb-16">
+                <h2 class="font-anton text-3xl md:text-5xl lg:text-6xl mb-4 md:mb-6">
+                    WHAT I <span class="text-electricBlue">OFFER</span>
+                </h2>
+                <p class="font-jakarta text-base md:text-xl text-gray-300 max-w-3xl mx-auto">
+                    End-to-end Shopify solutions built with precision, performance, and profit in mind.
+                </p>
+            </div>
+            
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+                <!-- Service 1 -->
+                <div class="bg-deepBg border border-white/10 rounded-xl p-6 hover:border-electricBlue/50 transition-all group">
+                    <div class="text-4xl mb-4">🎨</div>
+                    <h3 class="font-sora text-lg md:text-xl font-bold mb-3 group-hover:text-electricBlue transition-colors">Custom Theme Development</h3>
+                    <p class="font-jakarta text-sm text-gray-400">Bespoke themes coded from scratch to match your brand perfectly.</p>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="bg-deepBg border border-white/10 rounded-xl p-6 hover:border-electricBlue/50 transition-all group">
+                    <div class="text-4xl mb-4">⚡</div>
+                    <h3 class="font-sora text-lg md:text-xl font-bold mb-3 group-hover:text-electricBlue transition-colors">Speed Optimization</h3>
+                    <p class="font-jakarta text-sm text-gray-400">Lightning-fast load times through code optimization.</p>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="bg-deepBg border border-white/10 rounded-xl p-6 hover:border-electricBlue/50 transition-all group">
+                    <div class="text-4xl mb-4">📈</div>
+                    <h3 class="font-sora text-lg md:text-xl font-bold mb-3 group-hover:text-electricBlue transition-colors">Conversion Optimization</h3>
+                    <p class="font-jakarta text-sm text-gray-400">Turn more visitors into paying customers.</p>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="bg-deepBg border border-white/10 rounded-xl p-6 hover:border-electricBlue/50 transition-all group">
+                    <div class="text-4xl mb-4">🔧</div>
+                    <h3 class="font-sora text-lg md:text-xl font-bold mb-3 group-hover:text-electricBlue transition-colors">App Replacement</h3>
+                    <p class="font-jakarta text-sm text-gray-400">Replace expensive apps with custom code.</p>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="bg-deepBg border border-white/10 rounded-xl p-6 hover:border-electricBlue/50 transition-all group">
+                    <div class="text-4xl mb-4">💳</div>
+                    <h3 class="font-sora text-lg md:text-xl font-bold mb-3 group-hover:text-electricBlue transition-colors">Payment Integration</h3>
+                    <p class="font-jakarta text-sm text-gray-400">Seamless, secure transactions worldwide.</p>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="bg-deepBg border border-white/10 rounded-xl p-6 hover:border-electricBlue/50 transition-all group">
+                    <div class="text-4xl mb-4">🛡️</div>
+                    <h3 class="font-sora text-lg md:text-xl font-bold mb-3 group-hover:text-electricBlue transition-colors">Ongoing Maintenance</h3>
+                    <p class="font-jakarta text-sm text-gray-400">24/7 monitoring and updates.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Indicators -->
+    <section class="py-16 md:py-24 bg-deepBg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-10 md:gap-12">
+                <div class="text-center">
+                    <div class="w-20 h-20 md:w-24 md:h-24 bg-electricBlue/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-10 h-10 md:w-12 md:h-12 text-electricBlue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-sora text-xl md:text-2xl font-bold mb-3">Global Clients</h3>
+                    <p class="font-jakarta text-sm md:text-base text-gray-400">Serving businesses worldwide</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-20 h-20 md:w-24 md:h-24 bg-electricBlue/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-10 h-10 md:w-12 md:h-12 text-electricBlue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-sora text-xl md:text-2xl font-bold mb-3">100% Secure</h3>
+                    <p class="font-jakarta text-sm md:text-base text-gray-400">Bank-level security, GDPR compliant</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-20 h-20 md:w-24 md:h-24 bg-electricBlue/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-10 h-10 md:w-12 md:h-12 text-electricBlue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-sora text-xl md:text-2xl font-bold mb-3">Fast Delivery</h3>
+                    <p class="font-jakarta text-sm md:text-base text-gray-400">2-4 weeks with daily updates</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-16 md:py-24 bg-charcoal">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 md:mb-16">
+                <h2 class="font-anton text-3xl md:text-5xl lg:text-6xl mb-4 md:mb-6">
+                    FREQUENTLY ASKED <span class="text-electricBlue">QUESTIONS</span>
+                </h2>
+                <p class="font-jakarta text-base md:text-xl text-gray-300">
+                    Everything you need to know about working with me.
+                </p>
+            </div>
+            
+            <div class="space-y-4">
+                <!-- FAQ 1 -->
+                <div class="bg-deepBg border border-white/10 rounded-xl overflow-hidden">
+                    <button class="faq-btn w-full text-left p-5 md:p-6 flex items-center justify-between hover:bg-white/5 transition-all">
+                        <span class="font-sora text-sm md:text-lg font-semibold pr-4">Why avoid paid Shopify apps?</span>
+                        <svg class="faq-icon w-5 h-5 md:w-6 md:h-6 text-electricBlue flex-shrink-0 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="faq-content hidden px-5 md:px-6 pb-5 md:pb-6">
+                        <p class="font-jakarta text-sm md:text-base text-gray-400 leading-relaxed">
+                            Paid apps cost $50-200/month each, slow your store, create dependencies, and collect customer data. Custom code is faster, more secure, and you own it forever.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- FAQ 2 -->
+                <div class="bg-deepBg border border-white/10 rounded-xl overflow-hidden">
+                    <button class="faq-btn w-full text-left p-5 md:p-6 flex items-center justify-between hover:bg-white/5 transition-all">
+                        <span class="font-sora text-sm md:text-lg font-semibold pr-4">How much faster with custom code?</span>
+                        <svg class="faq-icon w-5 h-5 md:w-6 md:h-6 text-electricBlue flex-shrink-0 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="faq-content hidden px-5 md:px-6 pb-5 md:pb-6">
+                        <p class="font-jakarta text-sm md:text-base text-gray-400 leading-relaxed">
+                            3-5x faster load times on average. This improves Google rankings, conversion rates, and customer satisfaction. 1-second delay = 7% conversion loss.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- FAQ 3 -->
+                <div class="bg-deepBg border border-white/10 rounded-xl overflow-hidden">
+                    <button class="faq-btn w-full text-left p-5 md:p-6 flex items-center justify-between hover:bg-white/5 transition-all">
+                        <span class="font-sora text-sm md:text-lg font-semibold pr-4">Migration without downtime?</span>
+                        <svg class="faq-icon w-5 h-5 md:w-6 md:h-6 text-electricBlue flex-shrink-0 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="faq-content hidden px-5 md:px-6 pb-5 md:pb-6">
+                        <p class="font-jakarta text-sm md:text-base text-gray-400 leading-relaxed">
+                            Yes. I develop on staging, deploy during low-traffic hours, and create full backups. Zero downtime guaranteed.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- FAQ 4 -->
+                <div class="bg-deepBg border border-white/10 rounded-xl overflow-hidden">
+                    <button class="faq-btn w-full text-left p-5 md:p-6 flex items-center justify-between hover:bg-white/5 transition-all">
+                        <span class="font-sora text-sm md:text-lg font-semibold pr-4">Post-project support?</span>
+                        <svg class="faq-icon w-5 h-5 md:w-6 md:h-6 text-electricBlue flex-shrink-0 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="faq-content hidden px-5 md:px-6 pb-5 md:pb-6">
+                        <p class="font-jakarta text-sm md:text-base text-gray-400 leading-relaxed">
+                            30 days free support included. Then flexible maintenance packages or hourly rates available.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- FAQ 5 -->
+                <div class="bg-deepBg border border-white/10 rounded-xl overflow-hidden">
+                    <button class="faq-btn w-full text-left p-5 md:p-6 flex items-center justify-between hover:bg-white/5 transition-all">
+                        <span class="font-sora text-sm md:text-lg font-semibold pr-4">Typical timeline?</span>
+                        <svg class="faq-icon w-5 h-5 md:w-6 md:h-6 text-electricBlue flex-shrink-0 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="faq-content hidden px-5 md:px-6 pb-5 md:pb-6">
+                        <p class="font-jakarta text-sm md:text-base text-gray-400 leading-relaxed">
+                            Simple: 3-7 days. Full theme: 2-3 weeks. Complex: 4-6 weeks. Daily updates provided.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 md:py-24 bg-gradient-to-br from-electricBlue to-blue-700 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
+        </div>
+        
+        <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="font-anton text-3xl md:text-5xl lg:text-6xl mb-4 md:mb-6 text-white">
+                READY TO BUILD SOMETHING EXTRAORDINARY?
+            </h2>
+            <p class="font-jakarta text-base md:text-xl lg:text-2xl text-white/90 mb-8 md:mb-10 max-w-3xl mx-auto">
+                Let's eliminate your app expenses, triple your speed, and create a Shopify store that converts.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-4">
+                <a href="mailto:faisaluddin155@gmail.com" class="bg-white text-electricBlue hover:bg-gray-100 font-bold px-8 md:px-10 py-4 md:py-5 rounded-xl transition-all shadow-xl inline-flex items-center justify-center gap-3 group">
+                    <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                    </svg>
+                    <span>Email Me Now</span>
+                </a>
+                
+                <a href="https://wa.me/8801602210817" target="_blank" class="bg-transparent border-2 border-white text-white hover:bg-white hover:text-electricBlue font-bold px-8 md:px-10 py-4 md:py-5 rounded-xl transition-all inline-flex items-center justify-center gap-3">
+                    <svg class="w-5 h-5 md:w-6 md:h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                    </svg>
+                    <span>WhatsApp Chat</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-deepBg py-12 md:py-16 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
+                <!-- Brand -->
+                <div class="text-center sm:text-left">
+                    <h3 class="font-anton text-2xl mb-4">FAISAL<span class="text-electricBlue">.</span></h3>
+                    <p class="font-jakarta text-sm text-gray-400 mb-4">
+                        Senior Shopify Developer specializing in custom code solutions since 2021.
+                    </p>
+                    <div class="flex gap-4 justify-center sm:justify-start">
+                        <a href="https://facebook.com/Faisaluddin155" target="_blank" class="w-10 h-10 bg-white/10 hover:bg-electricBlue rounded-lg flex items-center justify-center transition-all">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            </svg>
+                        </a>
+                        <a href="https://instagram.com/Faisaluddin155" target="_blank" class="w-10 h-10 bg-white/10 hover:bg-electricBlue rounded-lg flex items-center justify-center transition-all">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/>
+                            </svg>
+                        </a>
+                        <a href="https://twitter.com/Faisaluddin155" target="_blank" class="w-10 h-10 bg-white/10 hover:bg-electricBlue rounded-lg flex items-center justify-center transition-all">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div class="text-center sm:text-left">
+                    <h4 class="font-sora font-bold text-lg mb-4">Quick Links</h4>
+                    <ul class="space-y-2 font-jakarta text-sm text-gray-400">
+                        <li><a href="index.html" class="hover:text-electricBlue transition-colors">Home</a></li>
+                        <li><a href="about.html" class="hover:text-electricBlue transition-colors">About Me</a></li>
+                        <li><a href="services.html" class="hover:text-electricBlue transition-colors">Services</a></li>
+                        <li><a href="case-studies.html" class="hover:text-electricBlue transition-colors">Case Studies</a></li>
+                        <li><a href="contact.html" class="hover:text-electricBlue transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Services -->
+                <div class="text-center sm:text-left">
+                    <h4 class="font-sora font-bold text-lg mb-4">Services</h4>
+                    <ul class="space-y-2 font-jakarta text-sm text-gray-400">
+                        <li><a href="services.html" class="hover:text-electricBlue transition-colors">Custom Themes</a></li>
+                        <li><a href="services.html" class="hover:text-electricBlue transition-colors">Speed Optimization</a></li>
+                        <li><a href="services.html" class="hover:text-electricBlue transition-colors">CRO Services</a></li>
+                        <li><a href="services.html" class="hover:text-electricBlue transition-colors">App Replacement</a></li>
+                        <li><a href="services.html" class="hover:text-electricBlue transition-colors">Maintenance</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact -->
+                <div class="text-center sm:text-left">
+                    <h4 class="font-sora font-bold text-lg mb-4">Get In Touch</h4>
+                    <ul class="space-y-3 font-jakarta text-sm text-gray-400">
+                        <li class="flex items-start gap-2 justify-center sm:justify-start">
+                            <svg class="w-5 h-5 text-electricBlue mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            </svg>
+                            <a href="mailto:faisaluddin155@gmail.com" class="hover:text-electricBlue transition-colors break-all">faisaluddin155@gmail.com</a>
+                        </li>
+                        <li class="flex items-start gap-2 justify-center sm:justify-start">
+                            <svg class="w-5 h-5 text-electricBlue mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                            </svg>
+                            <a href="https://wa.me/8801602210817" target="_blank" class="hover:text-electricBlue transition-colors">+880 1602-210817</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Copyright -->
+            <div class="border-t border-white/10 pt-8 text-center">
+                <p class="font-jakarta text-sm text-gray-400">
+                    &copy; 2025 Faisal Uddin. All rights reserved. Built with custom code, zero apps.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuOpenIcon = document.getElementById('menu-open-icon');
+        const menuCloseIcon = document.getElementById('menu-close-icon');
+        
+        mobileMenuBtn.addEventListener('click', function() {
+            const isHidden = mobileMenu.classList.contains('hidden');
+            
+            if (isHidden) {
+                // Open menu
+                mobileMenu.classList.remove('hidden');
+                mobileMenu.classList.add('mobile-menu-open');
+                menuOpenIcon.classList.add('hidden');
+                menuCloseIcon.classList.remove('hidden');
+                document.body.classList.add('menu-open');
+            } else {
+                // Close menu
+                mobileMenu.classList.add('hidden');
+                mobileMenu.classList.remove('mobile-menu-open');
+                menuOpenIcon.classList.remove('hidden');
+                menuCloseIcon.classList.add('hidden');
+                document.body.classList.remove('menu-open');
+            }
+        });
+
+        // Close menu when clicking on links
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+        mobileMenuLinks.forEach(function(link) {
+            link.addEventListener('click', function() {
+                mobileMenu.classList.add('hidden');
+                mobileMenu.classList.remove('mobile-menu-open');
+                menuOpenIcon.classList.remove('hidden');
+                menuCloseIcon.classList.add('hidden');
+                document.body.classList.remove('menu-open');
+            });
+        });
+        
+        // FAQ Accordion
+        const faqButtons = document.querySelectorAll('.faq-btn');
+        
+        faqButtons.forEach(function(button) {
+            button.addEventListener('click', function() {
+                const faqItem = button.parentElement;
+                const content = faqItem.querySelector('.faq-content');
+                const icon = button.querySelector('.faq-icon');
+                const isHidden = content.classList.contains('hidden');
+                
+                // Close all other FAQs
+                faqButtons.forEach(function(otherButton) {
+                    if (otherButton !== button) {
+                        const otherItem = otherButton.parentElement;
+                        const otherContent = otherItem.querySelector('.faq-content');
+                        const otherIcon = otherButton.querySelector('.faq-icon');
+                        
+                        otherContent.classList.add('hidden');
+                        otherIcon.style.transform = 'rotate(0deg)';
+                    }
+                });
+                
+                // Toggle current FAQ
+                if (isHidden) {
+                    content.classList.remove('hidden');
+                    icon.style.transform = 'rotate(180deg)';
+                } else {
+                    content.classList.add('hidden');
+                    icon.style.transform = 'rotate(0deg)';
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
