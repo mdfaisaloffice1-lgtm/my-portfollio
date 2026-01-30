@@ -17,6 +17,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles.css">
+    
     <!-- Tailwind Config -->
     <script>
         tailwind.config = {
@@ -40,57 +43,6 @@
             }
         }
     </script>
-    
-    <!-- Internal Styles -->
-    <style>
-        /* Hero Background Animation */
-        .hero-bg-gradient {
-            background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(147, 51, 234, 0.1) 100%);
-            animation: gradientShift 8s ease infinite;
-        }
-        
-        @keyframes gradientShift {
-            0%, 100% { opacity: 0.8; }
-            50% { opacity: 1; }
-        }
-        
-        .grid-overlay {
-            background-image: 
-                linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-            background-size: 50px 50px;
-        }
-        
-        /* Smooth Scroll */
-        html {
-            scroll-behavior: smooth;
-        }
-        
-        /* Nav Link Hover */
-        .nav-link {
-            position: relative;
-            transition: color 0.3s ease;
-        }
-        
-        .nav-link:hover {
-            color: #2563EB;
-        }
-        
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: #2563EB;
-            transition: width 0.3s ease;
-        }
-        
-        .nav-link:hover::after {
-            width: 100%;
-        }
-    </style>
 </head>
 <body class="bg-charcoal text-white antialiased overflow-x-hidden">
 
@@ -106,14 +58,14 @@
                 
                 <div class="hidden md:flex items-center space-x-8">
                     <a href="index.html" class="nav-link font-sora font-semibold text-electricBlue">Home</a>
-                    <a href="about.html" class="nav-link font-sora text-gray-300">About</a>
-                    <a href="services.html" class="nav-link font-sora text-gray-300">Services</a>
-                    <a href="case-studies.html" class="nav-link font-sora text-gray-300">Case Studies</a>
-                    <a href="contact.html" class="nav-link font-sora text-gray-300">Contact</a>
+                    <a href="about.html" class="nav-link font-sora">About</a>
+                    <a href="services.html" class="nav-link font-sora">Services</a>
+                    <a href="case-studies.html" class="nav-link font-sora">Case Studies</a>
+                    <a href="contact.html" class="nav-link font-sora">Contact</a>
                 </div>
                 
                 <div class="hidden md:block">
-                    <a href="https://wa.me/8801602210817" target="_blank" class="bg-electricBlue hover:bg-blue-600 text-white font-dm font-bold px-6 py-3 rounded-lg transition-all duration-300 transform hover:scale-105">
+                    <a href="https://wa.me/8801602210817" target="_blank" class="whatsapp-btn bg-electricBlue hover:bg-blue-600 text-white font-dm font-bold px-6 py-3 rounded-lg transition-all duration-300 transform hover:scale-105">
                         Let's Talk
                     </a>
                 </div>
@@ -131,11 +83,11 @@
         <div id="mobile-menu" class="hidden md:hidden bg-deepBg border-t border-white/10">
             <div class="px-6 py-6 space-y-4">
                 <a href="index.html" class="block font-sora font-semibold text-electricBlue py-2">Home</a>
-                <a href="about.html" class="block font-sora text-white hover:text-electricBlue py-2 transition-colors">About</a>
-                <a href="services.html" class="block font-sora text-white hover:text-electricBlue py-2 transition-colors">Services</a>
-                <a href="case-studies.html" class="block font-sora text-white hover:text-electricBlue py-2 transition-colors">Case Studies</a>
-                <a href="contact.html" class="block font-sora text-white hover:text-electricBlue py-2 transition-colors">Contact</a>
-                <a href="https://wa.me/8801602210817" target="_blank" class="block bg-electricBlue text-white font-dm font-bold px-6 py-3 rounded-lg text-center mt-4 hover:bg-blue-600 transition-colors">
+                <a href="about.html" class="block font-sora text-white hover:text-electricBlue py-2">About</a>
+                <a href="services.html" class="block font-sora text-white hover:text-electricBlue py-2">Services</a>
+                <a href="case-studies.html" class="block font-sora text-white hover:text-electricBlue py-2">Case Studies</a>
+                <a href="contact.html" class="block font-sora text-white hover:text-electricBlue py-2">Contact</a>
+                <a href="https://wa.me/8801602210817" target="_blank" class="block bg-electricBlue text-white font-dm font-bold px-6 py-3 rounded-lg text-center mt-4">
                     Let's Talk on WhatsApp
                 </a>
             </div>
@@ -146,39 +98,39 @@
     <section class="hero-section relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
         <!-- Animated Background -->
         <div class="absolute inset-0 z-0">
-            <div class="hero-bg-gradient absolute inset-0"></div>
-            <div class="grid-overlay absolute inset-0"></div>
+            <div class="hero-bg-gradient"></div>
+            <div class="grid-overlay"></div>
         </div>
         
         <!-- Hero Content -->
         <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 py-20">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
                 <!-- Left Column - Text -->
-                <div class="hero-text-content space-y-6">
-                    <div class="inline-block">
-                        <span class="font-dm text-sm tracking-wider px-4 py-2 bg-electricBlue/20 text-electricBlue border border-electricBlue/30 rounded-full">
+                <div class="hero-text-content">
+                    <div class="inline-block mb-6">
+                        <span class="badge-tag font-dm text-sm tracking-wider px-4 py-2 bg-electricBlue/20 text-electricBlue border border-electricBlue/30 rounded-full">
                             ⚡ NO-PAID-APP SHOPIFY SPECIALIST
                         </span>
                     </div>
                     
-                    <h1 class="font-anton text-5xl md:text-7xl lg:text-8xl leading-none">
+                    <h1 class="font-anton text-5xl md:text-7xl lg:text-8xl leading-none mb-6 hero-title">
                         CUSTOM CODE.<br/>
                         <span class="text-electricBlue">ZERO APPS.</span><br/>
                         PURE SPEED.
                     </h1>
                     
-                    <p class="font-jakarta text-lg md:text-xl text-gray-300 leading-relaxed max-w-xl">
+                    <p class="font-jakarta text-lg md:text-xl text-gray-300 mb-8 leading-relaxed max-w-xl">
                         I'm Faisal Uddin, a Senior Shopify Developer who builds lightning-fast stores using custom Liquid code instead of bloated paid apps. Since 2021, I've delivered 250+ high-performance Shopify stores for global clients.
                     </p>
                     
                     <!-- Stats Counter -->
-                    <div class="flex flex-wrap gap-8 pt-4">
+                    <div class="flex flex-wrap gap-8 mb-10">
                         <div class="stat-item">
-                            <div class="font-anton text-5xl text-electricBlue counter" data-target="250">250+</div>
+                            <div class="font-anton text-5xl text-electricBlue counter" data-target="250">0</div>
                             <div class="font-sora text-sm text-gray-400 mt-1">Projects Delivered</div>
                         </div>
                         <div class="stat-item">
-                            <div class="font-anton text-5xl text-electricBlue counter" data-target="5">5+</div>
+                            <div class="font-anton text-5xl text-electricBlue counter" data-target="5">0</div>
                             <div class="font-sora text-sm text-gray-400 mt-1">Years Experience</div>
                         </div>
                         <div class="stat-item">
@@ -188,30 +140,46 @@
                     </div>
                     
                     <!-- CTA Buttons -->
-                    <div class="flex flex-wrap gap-4 pt-2">
-                        <a href="contact.html" class="bg-electricBlue hover:bg-blue-600 text-white font-dm font-bold px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-electricBlue/50">
+                    <div class="flex flex-wrap gap-4">
+                        <a href="contact.html" class="cta-primary bg-electricBlue hover:bg-blue-600 text-white font-dm font-bold px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-electricBlue/50">
                             Start Your Project
                         </a>
-                        <a href="case-studies.html" class="border-2 border-white/30 hover:border-electricBlue text-white font-dm font-bold px-8 py-4 rounded-lg transition-all duration-300 hover:bg-electricBlue/10">
+                        <a href="case-studies.html" class="cta-secondary border-2 border-white/30 hover:border-electricBlue text-white font-dm font-bold px-8 py-4 rounded-lg transition-all duration-300 hover:bg-electricBlue/10">
                             View Case Studies
                         </a>
                     </div>
                 </div>
                 
-                <!-- Right Column - Image -->
-                <div class="relative">
+                <!-- Right Column - Image with Strategic Email -->
+                <div class="relative hero-image-container">
                     <div class="relative rounded-2xl overflow-hidden shadow-2xl transform hover:scale-105 transition-all duration-500">
                         <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&h=1000&fit=crop&crop=entropy" 
                              alt="Premium Development Workspace" 
                              class="w-full h-auto object-cover">
                         <div class="absolute inset-0 bg-gradient-to-t from-charcoal via-transparent to-transparent"></div>
                     </div>
+                    
+                    <!-- Strategic Email Placement #1 - Hero Pain Point -->
+                    <div class="email-cta-floating absolute -bottom-6 -left-6 right-6 bg-deepBg border-2 border-electricBlue/50 rounded-xl p-6 shadow-2xl transform hover:scale-105 transition-all duration-300 hover:shadow-electricBlue/50">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="font-sora text-sm text-gray-400 mb-1">Stuck with slow apps?</p>
+                                <p class="font-dm font-bold text-white">Email me directly</p>
+                            </div>
+                            <a href="mailto:faisaluddinbd155@gmail.com" class="email-btn-animated bg-electricBlue hover:bg-blue-600 text-white font-dm font-bold px-6 py-3 rounded-lg transition-all duration-300 flex items-center gap-2 group">
+                                <span>Email Now</span>
+                                <svg class="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
         
         <!-- Scroll Indicator -->
-        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2">
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 scroll-indicator">
             <div class="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
                 <div class="w-1 h-3 bg-electricBlue rounded-full mt-2 animate-bounce"></div>
             </div>
@@ -219,7 +187,7 @@
     </section>
 
     <!-- Value Proposition Section -->
-    <section class="py-24 bg-deepBg relative overflow-hidden">
+    <section class="py-20 bg-deepBg relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="font-anton text-4xl md:text-6xl mb-6">
@@ -232,7 +200,7 @@
             
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Advantage Card 1 -->
-                <div class="bg-charcoal border border-white/10 rounded-2xl p-8 hover:border-electricBlue/50 transition-all duration-300 transform hover:scale-105">
+                <div class="advantage-card bg-charcoal border border-white/10 rounded-2xl p-8 hover:border-electricBlue/50 transition-all duration-300 transform hover:scale-105">
                     <div class="w-16 h-16 bg-electricBlue/20 rounded-full flex items-center justify-center mb-6">
                         <svg class="w-8 h-8 text-electricBlue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
@@ -245,7 +213,7 @@
                 </div>
                 
                 <!-- Advantage Card 2 -->
-                <div class="bg-charcoal border border-white/10 rounded-2xl p-8 hover:border-electricBlue/50 transition-all duration-300 transform hover:scale-105">
+                <div class="advantage-card bg-charcoal border border-white/10 rounded-2xl p-8 hover:border-electricBlue/50 transition-all duration-300 transform hover:scale-105">
                     <div class="w-16 h-16 bg-electricBlue/20 rounded-full flex items-center justify-center mb-6">
                         <svg class="w-8 h-8 text-electricBlue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
@@ -258,7 +226,7 @@
                 </div>
                 
                 <!-- Advantage Card 3 -->
-                <div class="bg-charcoal border border-white/10 rounded-2xl p-8 hover:border-electricBlue/50 transition-all duration-300 transform hover:scale-105">
+                <div class="advantage-card bg-charcoal border border-white/10 rounded-2xl p-8 hover:border-electricBlue/50 transition-all duration-300 transform hover:scale-105">
                     <div class="w-16 h-16 bg-electricBlue/20 rounded-full flex items-center justify-center mb-6">
                         <svg class="w-8 h-8 text-electricBlue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
@@ -270,11 +238,28 @@
                     </p>
                 </div>
             </div>
+            
+            <!-- Strategic Email Placement #2 - Value Proposition Pain Point -->
+            <div class="mt-16 bg-gradient-to-r from-electricBlue/10 to-purple-600/10 border-2 border-electricBlue/30 rounded-2xl p-8 md:p-12 text-center transform hover:scale-105 transition-all duration-300">
+                <h3 class="font-sora text-3xl font-bold mb-4">Tired of Monthly App Fees Draining Your Revenue?</h3>
+                <p class="font-jakarta text-xl text-gray-300 mb-6 max-w-3xl mx-auto">
+                    Let me show you how custom code can replace your expensive app stack and boost your store's performance.
+                </p>
+                <a href="mailto:faisaluddinbd155@gmail.com" class="email-btn-premium inline-flex items-center gap-3 bg-electricBlue hover:bg-blue-600 text-white font-dm font-bold px-10 py-5 rounded-xl transition-all duration-300 transform hover:scale-110 hover:shadow-2xl hover:shadow-electricBlue/50 group">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                    </svg>
+                    <span>faisaluddinbd155@gmail.com</span>
+                    <svg class="w-5 h-5 transform group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                    </svg>
+                </a>
+            </div>
         </div>
     </section>
 
     <!-- What I Offer Section -->
-    <section class="py-24 bg-charcoal">
+    <section class="py-20 bg-charcoal">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="font-anton text-4xl md:text-6xl mb-6">
@@ -285,44 +270,58 @@
                 </p>
             </div>
             
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <!-- Service 1 -->
-                <div class="bg-deepBg border border-white/10 rounded-xl p-6 hover:border-electricBlue/50 transition-all duration-300 group">
+                <div class="service-card bg-deepBg border border-white/10 rounded-xl p-6 hover:border-electricBlue/50 transition-all duration-300 group">
                     <div class="text-4xl mb-4">🎨</div>
                     <h3 class="font-sora text-xl font-bold mb-3 group-hover:text-electricBlue transition-colors">Custom Theme Development</h3>
                     <p class="font-jakarta text-sm text-gray-400">Bespoke Shopify themes coded from scratch to match your brand identity perfectly.</p>
                 </div>
                 
                 <!-- Service 2 -->
-                <div class="bg-deepBg border border-white/10 rounded-xl p-6 hover:border-electricBlue/50 transition-all duration-300 group">
+                <div class="service-card bg-deepBg border border-white/10 rounded-xl p-6 hover:border-electricBlue/50 transition-all duration-300 group">
                     <div class="text-4xl mb-4">⚡</div>
                     <h3 class="font-sora text-xl font-bold mb-3 group-hover:text-electricBlue transition-colors">Speed Optimization</h3>
                     <p class="font-jakarta text-sm text-gray-400">Lightning-fast load times through code optimization and performance tuning.</p>
                 </div>
                 
                 <!-- Service 3 -->
-                <div class="bg-deepBg border border-white/10 rounded-xl p-6 hover:border-electricBlue/50 transition-all duration-300 group">
+                <div class="service-card bg-deepBg border border-white/10 rounded-xl p-6 hover:border-electricBlue/50 transition-all duration-300 group">
                     <div class="text-4xl mb-4">📈</div>
                     <h3 class="font-sora text-xl font-bold mb-3 group-hover:text-electricBlue transition-colors">Conversion Rate Optimization</h3>
                     <p class="font-jakarta text-sm text-gray-400">Data-driven improvements to turn more visitors into paying customers.</p>
                 </div>
                 
                 <!-- Service 4 -->
-                <div class="bg-deepBg border border-white/10 rounded-xl p-6 hover:border-electricBlue/50 transition-all duration-300 group">
+                <div class="service-card bg-deepBg border border-white/10 rounded-xl p-6 hover:border-electricBlue/50 transition-all duration-300 group">
                     <div class="text-4xl mb-4">🔧</div>
                     <h3 class="font-sora text-xl font-bold mb-3 group-hover:text-electricBlue transition-colors">App Replacement</h3>
                     <p class="font-jakarta text-sm text-gray-400">Replace expensive apps with custom Liquid code that's faster and free forever.</p>
                 </div>
                 
                 <!-- Service 5 -->
-                <div class="bg-deepBg border border-white/10 rounded-xl p-6 hover:border-electricBlue/50 transition-all duration-300 group">
+                <div class="service-card bg-deepBg border border-white/10 rounded-xl p-6 hover:border-electricBlue/50 transition-all duration-300 group">
                     <div class="text-4xl mb-4">💳</div>
                     <h3 class="font-sora text-xl font-bold mb-3 group-hover:text-electricBlue transition-colors">Payment Gateway Integration</h3>
-                    <p class="font-jakarta text-sm text-gray-400">Seamless payment solutions for smooth, secure transactions worldwide.</p>
+                    <p class="font-jakarta text-sm text-gray-400">Seamless payment digitalization for smooth, secure transactions worldwide.</p>
                 </div>
                 
                 <!-- Service 6 -->
-                <div class="bg-deepBg border border-white/10 rounded-xl p-6 hover:border-electricBlue/50 transition-all duration-300 group">
+                <div class="service-card bg-deepBg border border-white/10 rounded-xl p-6 hover:border-electricBlue/50 transition-all duration-300 group">
+                    <div class="text-4xl mb-4">📧</div>
+                    <h3 class="font-sora text-xl font-bold mb-3 group-hover:text-electricBlue transition-colors">Email Marketing Automation</h3>
+                    <p class="font-jakarta text-sm text-gray-400">Smart email flows that nurture leads and recover abandoned carts automatically.</p>
+                </div>
+                
+                <!-- Service 7 -->
+                <div class="service-card bg-deepBg border border-white/10 rounded-xl p-6 hover:border-electricBlue/50 transition-all duration-300 group">
+                    <div class="text-4xl mb-4">🤖</div>
+                    <h3 class="font-sora text-xl font-bold mb-3 group-hover:text-electricBlue transition-colors">Workflow Automation</h3>
+                    <p class="font-jakarta text-sm text-gray-400">Automated processes that save you hours every day and reduce human error.</p>
+                </div>
+                
+                <!-- Service 8 -->
+                <div class="service-card bg-deepBg border border-white/10 rounded-xl p-6 hover:border-electricBlue/50 transition-all duration-300 group">
                     <div class="text-4xl mb-4">🛡️</div>
                     <h3 class="font-sora text-xl font-bold mb-3 group-hover:text-electricBlue transition-colors">Ongoing Maintenance</h3>
                     <p class="font-jakarta text-sm text-gray-400">24/7 monitoring, updates, and bug fixes to keep your store running flawlessly.</p>
@@ -332,10 +331,10 @@
     </section>
 
     <!-- Trust Indicators -->
-    <section class="py-24 bg-deepBg">
+    <section class="py-20 bg-deepBg">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="grid md:grid-cols-3 gap-12">
-                <div class="text-center">
+            <div class="grid md:grid-cols-3 gap-12 items-center">
+                <div class="text-center trust-item">
                     <div class="w-24 h-24 bg-electricBlue/20 rounded-full flex items-center justify-center mx-auto mb-6">
                         <svg class="w-12 h-12 text-electricBlue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
@@ -345,7 +344,7 @@
                     <p class="font-jakarta text-gray-400">Serving businesses in Germany, Singapore, USA, Canada, and beyond.</p>
                 </div>
                 
-                <div class="text-center">
+                <div class="text-center trust-item">
                     <div class="w-24 h-24 bg-electricBlue/20 rounded-full flex items-center justify-center mx-auto mb-6">
                         <svg class="w-12 h-12 text-electricBlue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
@@ -355,7 +354,7 @@
                     <p class="font-jakarta text-gray-400">Bank-level code security, GDPR compliance, and zero data breaches.</p>
                 </div>
                 
-                <div class="text-center">
+                <div class="text-center trust-item">
                     <div class="w-24 h-24 bg-electricBlue/20 rounded-full flex items-center justify-center mx-auto mb-6">
                         <svg class="w-12 h-12 text-electricBlue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
@@ -369,7 +368,7 @@
     </section>
 
     <!-- FAQ Section -->
-    <section class="py-24 bg-charcoal">
+    <section class="py-20 bg-charcoal">
         <div class="max-w-4xl mx-auto px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="font-anton text-4xl md:text-6xl mb-6">
@@ -380,9 +379,9 @@
                 </p>
             </div>
             
-            <div class="space-y-4">
+            <div class="space-y-6">
                 <!-- FAQ Item 1 -->
-                <div class="bg-deepBg border border-white/10 rounded-xl overflow-hidden">
+                <div class="faq-item bg-deepBg border border-white/10 rounded-xl overflow-hidden">
                     <button class="faq-question w-full text-left p-6 flex items-center justify-between hover:bg-white/5 transition-all duration-300">
                         <span class="font-sora text-lg font-semibold pr-8">Why should I avoid paid Shopify apps?</span>
                         <svg class="faq-icon w-6 h-6 text-electricBlue transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -397,7 +396,7 @@
                 </div>
                 
                 <!-- FAQ Item 2 -->
-                <div class="bg-deepBg border border-white/10 rounded-xl overflow-hidden">
+                <div class="faq-item bg-deepBg border border-white/10 rounded-xl overflow-hidden">
                     <button class="faq-question w-full text-left p-6 flex items-center justify-between hover:bg-white/5 transition-all duration-300">
                         <span class="font-sora text-lg font-semibold pr-8">How much faster will my store be with custom code?</span>
                         <svg class="faq-icon w-6 h-6 text-electricBlue transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -412,7 +411,7 @@
                 </div>
                 
                 <!-- FAQ Item 3 -->
-                <div class="bg-deepBg border border-white/10 rounded-xl overflow-hidden">
+                <div class="faq-item bg-deepBg border border-white/10 rounded-xl overflow-hidden">
                     <button class="faq-question w-full text-left p-6 flex items-center justify-between hover:bg-white/5 transition-all duration-300">
                         <span class="font-sora text-lg font-semibold pr-8">Can you migrate my existing store without downtime?</span>
                         <svg class="faq-icon w-6 h-6 text-electricBlue transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -427,7 +426,7 @@
                 </div>
                 
                 <!-- FAQ Item 4 -->
-                <div class="bg-deepBg border border-white/10 rounded-xl overflow-hidden">
+                <div class="faq-item bg-deepBg border border-white/10 rounded-xl overflow-hidden">
                     <button class="faq-question w-full text-left p-6 flex items-center justify-between hover:bg-white/5 transition-all duration-300">
                         <span class="font-sora text-lg font-semibold pr-8">What happens if I need changes after the project is complete?</span>
                         <svg class="faq-icon w-6 h-6 text-electricBlue transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -442,7 +441,37 @@
                 </div>
                 
                 <!-- FAQ Item 5 -->
-                <div class="bg-deepBg border border-white/10 rounded-xl overflow-hidden">
+                <div class="faq-item bg-deepBg border border-white/10 rounded-xl overflow-hidden">
+                    <button class="faq-question w-full text-left p-6 flex items-center justify-between hover:bg-white/5 transition-all duration-300">
+                        <span class="font-sora text-lg font-semibold pr-8">How do you ensure my store's security?</span>
+                        <svg class="faq-icon w-6 h-6 text-electricBlue transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-6">
+                        <p class="font-jakarta text-gray-400 leading-relaxed">
+                            I follow Shopify's strict security guidelines and industry best practices. All custom code is thoroughly tested for vulnerabilities, I never store sensitive data insecurely, implement HTTPS everywhere, follow GDPR compliance standards, and regularly audit for potential security issues. Your customers' data is safe.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 6 -->
+                <div class="faq-item bg-deepBg border border-white/10 rounded-xl overflow-hidden">
+                    <button class="faq-question w-full text-left p-6 flex items-center justify-between hover:bg-white/5 transition-all duration-300">
+                        <span class="font-sora text-lg font-semibold pr-8">Can you handle high-traffic stores during peak seasons?</span>
+                        <svg class="faq-icon w-6 h-6 text-electricBlue transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-6">
+                        <p class="font-jakarta text-gray-400 leading-relaxed">
+                            Yes, I specialize in performance optimization for high-traffic scenarios. My custom code is designed to handle sudden traffic spikes efficiently. I've successfully managed stores processing thousands of orders during Black Friday/Cyber Monday without crashes or slowdowns.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 7 -->
+                <div class="faq-item bg-deepBg border border-white/10 rounded-xl overflow-hidden">
                     <button class="faq-question w-full text-left p-6 flex items-center justify-between hover:bg-white/5 transition-all duration-300">
                         <span class="font-sora text-lg font-semibold pr-8">What's your typical project timeline?</span>
                         <svg class="faq-icon w-6 h-6 text-electricBlue transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -456,11 +485,26 @@
                     </div>
                 </div>
             </div>
+            
+            <!-- Strategic Email Placement #3 - FAQ Pain Point -->
+            <div class="mt-12 bg-gradient-to-br from-electricBlue/20 to-purple-600/20 border-2 border-electricBlue/40 rounded-2xl p-8 text-center">
+                <h3 class="font-sora text-2xl font-bold mb-3">Still Have Questions?</h3>
+                <p class="font-jakarta text-gray-300 mb-6">I'm here to help. Email me directly and get answers within 24 hours.</p>
+                <a href="mailto:faisaluddinbd155@gmail.com" class="email-btn-premium inline-flex items-center gap-3 bg-electricBlue hover:bg-blue-600 text-white font-dm font-bold px-8 py-4 rounded-xl transition-all duration-300 transform hover:scale-110 hover:shadow-2xl hover:shadow-electricBlue/50 group">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                    </svg>
+                    <span>Ask Me Anything</span>
+                    <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                    </svg>
+                </a>
+            </div>
         </div>
     </section>
 
     <!-- CTA Section -->
-    <section class="py-24 bg-gradient-to-br from-electricBlue to-blue-700 relative overflow-hidden">
+    <section class="py-20 bg-gradient-to-br from-electricBlue to-blue-700 relative overflow-hidden">
         <div class="absolute inset-0 opacity-10">
             <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
         </div>
@@ -474,7 +518,7 @@
             </p>
             
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <a href="mailto:faisaluddin155@gmail.com" class="bg-white text-electricBlue hover:bg-gray-100 font-dm font-bold px-10 py-5 rounded-xl transition-all duration-300 transform hover:scale-110 hover:shadow-2xl inline-flex items-center gap-3 group">
+                <a href="mailto:faisaluddinbd155@gmail.com" class="bg-white text-electricBlue hover:bg-gray-100 font-dm font-bold px-10 py-5 rounded-xl transition-all duration-300 transform hover:scale-110 hover:shadow-2xl inline-flex items-center gap-3 group">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
                     </svg>
@@ -492,7 +536,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-deepBg py-16 border-t border-white/10">
+    <footer class="bg-deepBg py-12 border-t border-white/10">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
             <div class="grid md:grid-cols-4 gap-8 mb-12">
                 <!-- Column 1 - Brand -->
@@ -539,7 +583,7 @@
                         <li><a href="services.html#custom-themes" class="hover:text-electricBlue transition-colors">Custom Themes</a></li>
                         <li><a href="services.html#speed" class="hover:text-electricBlue transition-colors">Speed Optimization</a></li>
                         <li><a href="services.html#cro" class="hover:text-electricBlue transition-colors">CRO Services</a></li>
-                        <li><a href="services.html#app-replacement" class="hover:text-electricBlue transition-colors">App Replacement</a></li>
+                        <li><a href="services.html#automation" class="hover:text-electricBlue transition-colors">Automation</a></li>
                         <li><a href="services.html#maintenance" class="hover:text-electricBlue transition-colors">Maintenance</a></li>
                     </ul>
                 </div>
@@ -549,13 +593,13 @@
                     <h4 class="font-sora font-bold text-lg mb-4">Get In Touch</h4>
                     <ul class="space-y-3 font-jakarta text-sm text-gray-400">
                         <li class="flex items-start gap-2">
-                            <svg class="w-5 h-5 text-electricBlue mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-5 h-5 text-electricBlue mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
                             </svg>
-                            <a href="mailto:faisaluddin155@gmail.com" class="hover:text-electricBlue transition-colors break-all">faisaluddin155@gmail.com</a>
+                            <a href="mailto:faisaluddinbd155@gmail.com" class="hover:text-electricBlue transition-colors break-all">faisaluddinbd155@gmail.com</a>
                         </li>
                         <li class="flex items-start gap-2">
-                            <svg class="w-5 h-5 text-electricBlue mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-5 h-5 text-electricBlue mt-0.5" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
                             </svg>
                             <a href="https://wa.me/8801602210817" target="_blank" class="hover:text-electricBlue transition-colors">+880 1602-210817</a>
@@ -564,119 +608,16 @@
                 </div>
             </div>
             
-            <!-- Copyright -->
             <div class="border-t border-white/10 pt-8 text-center">
                 <p class="font-jakarta text-sm text-gray-400">
-                    &copy; 2025 Faisal Uddin. All rights reserved. Built with custom code, zero apps.
+                    © 2026 Faisal Uddin. All rights reserved. Built with custom code, zero apps.
                 </p>
             </div>
         </div>
     </footer>
 
-    <!-- JavaScript -->
-    <script>
-        // Mobile Menu Toggle
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-        
-        // FAQ Accordion
-        const faqQuestions = document.querySelectorAll('.faq-question');
-        
-        faqQuestions.forEach(question => {
-            question.addEventListener('click', () => {
-                const faqItem = question.parentElement;
-                const answer = faqItem.querySelector('.faq-answer');
-                const icon = question.querySelector('.faq-icon');
-                
-                // Close all other FAQs
-                faqQuestions.forEach(otherQuestion => {
-                    if (otherQuestion !== question) {
-                        const otherFaqItem = otherQuestion.parentElement;
-                        const otherAnswer = otherFaqItem.querySelector('.faq-answer');
-                        const otherIcon = otherQuestion.querySelector('.faq-icon');
-                        
-                        otherAnswer.classList.add('hidden');
-                        otherIcon.style.transform = 'rotate(0deg)';
-                    }
-                });
-                
-                // Toggle current FAQ
-                answer.classList.toggle('hidden');
-                if (answer.classList.contains('hidden')) {
-                    icon.style.transform = 'rotate(0deg)';
-                } else {
-                    icon.style.transform = 'rotate(180deg)';
-                }
-            });
-        });
-        
-        // GSAP Animations
-        gsap.registerPlugin(ScrollTrigger);
-        
-        // Hero animation
-        gsap.from('.hero-text-content', {
-            opacity: 0,
-            y: 50,
-            duration: 1,
-            ease: 'power3.out'
-        });
-        
-        gsap.from('.hero-image-container', {
-            opacity: 0,
-            x: 50,
-            duration: 1,
-            delay: 0.3,
-            ease: 'power3.out'
-        });
-        
-        // Section animations
-        gsap.utils.toArray('section').forEach(section => {
-            gsap.from(section.children, {
-                scrollTrigger: {
-                    trigger: section,
-                    start: 'top 80%',
-                    end: 'bottom 20%',
-                    toggleActions: 'play none none reverse'
-                },
-                opacity: 0,
-                y: 30,
-                duration: 0.8,
-                stagger: 0.1,
-                ease: 'power2.out'
-            });
-        });
-        
-        // Stats counter animation
-        const counters = document.querySelectorAll('.counter');
-        counters.forEach(counter => {
-            const target = parseInt(counter.getAttribute('data-target'));
-            if (target) {
-                const updateCounter = () => {
-                    const count = +counter.innerText.replace('+', '');
-                    const increment = target / 100;
-                    
-                    if (count < target) {
-                        counter.innerText = Math.ceil(count + increment) + '+';
-                        setTimeout(updateCounter, 20);
-                    } else {
-                        counter.innerText = target + '+';
-                    }
-                };
-                
-                // Trigger on scroll
-                ScrollTrigger.create({
-                    trigger: counter,
-                    start: 'top 80%',
-                    onEnter: updateCounter,
-                    once: true
-                });
-            }
-        });
-    </script>
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
 
 </body>
 </html>
