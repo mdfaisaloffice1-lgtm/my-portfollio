@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Faisal Uddin - My Shopify Journey Since 2021</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Sora:wght@300;400;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Manrope:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- GSAP for Advanced Animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        charcoal: '#0F172A',
+                        electricBlue: '#2563EB',
+                        softGray: '#F1F5F9',
+                        deepBg: '#0A2540',
+                    },
+                    fontFamily: {
+                        anton: ['Anton', 'sans-serif'],
+                        sora: ['Sora', 'sans-serif'],
+                        jakarta: ['Plus Jakarta Sans', 'sans-serif'],
+                        manrope: ['Manrope', 'sans-serif'],
+                        poppins: ['Poppins', 'sans-serif'],
+                        dm: ['DM Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-charcoal text-white antialiased overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full top-0 z-50 bg-charcoal/95 backdrop-blur-md border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="logo-container">
+                    <a href="index.html" class="text-2xl font-anton tracking-wider text-white hover:text-electricBlue transition-all duration-300">
+                        FAISAL<span class="text-electricBlue">.</span>
+                    </a>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link font-sora">Home</a>
+                    <a href="about.html" class="nav-link font-sora font-semibold text-electricBlue">About</a>
+                    <a href="services.html" class="nav-link font-sora">Services</a>
+                    <a href="case-studies.html" class="nav-link font-sora">Case Studies</a>
+                    <a href="contact.html" class="nav-link font-sora">Contact</a>
+                </div>
+                
+                <div class="hidden md:block">
+                    <a href="https://wa.me/8801602210817" target="_blank" class="whatsapp-btn bg-electricBlue hover:bg-blue-600 text-white font-dm font-bold px-6 py-3 rounded-lg transition-all duration-300 transform hover:scale-105">
+                        Let's Talk
+                    </a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-deepBg border-t border-white/10">
+            <div class="px-6 py-6 space-y-4">
+                <a href="index.html" class="block font-sora text-white hover:text-electricBlue py-2">Home</a>
+                <a href="about.html" class="block font-sora font-semibold text-electricBlue py-2">About</a>
+                <a href="services.html" class="block font-sora text-white hover:text-electricBlue py-2">Services</a>
+                <a href="case-studies.html" class="block font-sora text-white hover:text-electricBlue py-2">Case Studies</a>
+                <a href="contact.html" class="block font-sora text-white hover:text-electricBlue py-2">Contact</a>
+                <a href="https://wa.me/8801602210817" target="_blank" class="block bg-electricBlue text-white font-dm font-bold px-6 py-3 rounded-lg text-center mt-4">
+                    Let's Talk on WhatsApp
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-[60vh] flex items-center justify-center pt-32 pb-20 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <div class="hero-bg-gradient"></div>
+            <div class="grid-overlay"></div>
+        </div>
+        
+        <div class="relative z-10 max-w-5xl mx-auto px-6 lg:px-8 text-center">
+            <div class="inline-block mb-6">
+                <span class="badge-tag font-dm text-sm tracking-wider px-4 py-2 bg-electricBlue/20 text-electricBlue border border-electricBlue/30 rounded-full">
+                    🚀 THE JOURNEY SO FAR
+                </span>
+            </div>
+            
+            <h1 class="font-anton text-5xl md:text-7xl leading-none mb-6 hero-title">
+                FROM ZERO TO<br/>
+                <span class="text-electricBlue">250+ STORES</span>
+            </h1>
+            
+            <p class="font-jakarta text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+                How a passion for clean code and problem-solving turned into a global Shopify development career.
+            </p>
+        </div>
+    </section>
+
+    <!-- My Story Section -->
+    <section class="py-20 bg-deepBg">
+        <div class="max-w-6xl mx-auto px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center mb-20">
+                <!-- Image -->
+                <div class="order-2 lg:order-1">
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl transform hover:scale-105 transition-all duration-500">
+                        <img src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?w=800&h=900&fit=crop&crop=entropy" 
+                             alt="Developer workspace with code" 
+                             class="w-full h-auto object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-deepBg via-transparent to-transparent"></div>
+                    </div>
+                </div>
+                
+                <!-- Story -->
+                <div class="order-1 lg:order-2">
+                    <h2 class="font-anton text-4xl md:text-5xl mb-8">
+                        MY <span class="text-electricBlue">STORY</span>
+                    </h2>
+                    
+                    <div class="space-y-6 font-jakarta text-lg text-gray-300 leading-relaxed">
+                        <p>
+                            Back in 2021, I was frustrated. I kept seeing Shopify stores loaded with expensive apps that slowed everything down and drained merchants' budgets month after month. I thought, "There has to be a better way."
+                        </p>
+                        
+                        <p>
+                            That's when I made a decision that changed everything: I would master custom Liquid code and build solutions that apps couldn't match. No monthly fees. No bloat. Just clean, fast, custom code that does exactly what the client needs.
+                        </p>
+                        
+                        <p>
+                            The first few projects were challenging. I spent countless late nights debugging, learning Shopify's architecture inside-out, and perfecting my craft. But with each store I built, I got better. Faster. More creative.
+                        </p>
+                        
+                        <p class="text-electricBlue font-semibold">
+                            Five years later, I've delivered 250+ high-performance Shopify stores to clients across the globe.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="py-20 bg-charcoal">
+        <div class="max-w-6xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-anton text-4xl md:text-6xl mb-6">
+                    THE <span class="text-electricBlue">JOURNEY</span>
+                </h2>
+                <p class="font-jakarta text-xl text-gray-300">
+                    Five years of growth, learning, and incredible projects.
+                </p>
+            </div>
+            
+            <div class="relative">
+                <!-- Timeline Line -->
+                <div class="hidden lg:block absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-electricBlue/30"></div>
+                
+                <!-- Timeline Items -->
+                <div class="space-y-16">
+                    <!-- 2021 -->
+                    <div class="timeline-item flex flex-col lg:flex-row gap-8 items-center">
+                        <div class="lg:w-1/2 lg:text-right">
+                            <div class="bg-deepBg border border-white/10 rounded-2xl p-8 hover:border-electricBlue/50 transition-all duration-300">
+                                <div class="inline-block bg-electricBlue/20 text-electricBlue px-4 py-2 rounded-full font-dm font-bold mb-4">
+                                    2021 - The Beginning
+                                </div>
+                                <h3 class="font-sora text-2xl font-bold mb-3">First Client, First Custom Theme</h3>
+                                <p class="font-jakarta text-gray-400">
+                                    Started my Shopify journey by building a completely custom theme for a local fashion brand. Replaced 12 paid apps with custom Liquid code. The store loaded 4x faster and the client saved $1,800/year.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="hidden lg:flex w-16 h-16 bg-electricBlue rounded-full items-center justify-center text-2xl font-bold z-10 flex-shrink-0">
+                            📱
+                        </div>
+                        
+                        <div class="lg:w-1/2"></div>
+                    </div>
+                    
+                    <!-- 2022 -->
+                    <div class="timeline-item flex flex-col lg:flex-row gap-8 items-center">
+                        <div class="lg:w-1/2"></div>
+                        
+                        <div class="hidden lg:flex w-16 h-16 bg-electricBlue rounded-full items-center justify-center text-2xl font-bold z-10 flex-shrink-0">
+                            🌍
+                        </div>
+                        
+                        <div class="lg:w-1/2">
+                            <div class="bg-deepBg border border-white/10 rounded-2xl p-8 hover:border-electricBlue/50 transition-all duration-300">
+                                <div class="inline-block bg-electricBlue/20 text-electricBlue px-4 py-2 rounded-full font-dm font-bold mb-4">
+                                    2022 - Going Global
+                                </div>
+                                <h3 class="font-sora text-2xl font-bold mb-3">First International Clients</h3>
+                                <p class="font-jakarta text-gray-400">
+                                    Landed my first clients from Germany and Singapore. Learned to work across time zones, handle complex payment integrations for different currencies, and manage high-traffic stores during European and Asian peak hours.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 2023 -->
+                    <div class="timeline-item flex flex-col lg:flex-row gap-8 items-center">
+                        <div class="lg:w-1/2 lg:text-right">
+                            <div class="bg-deepBg border border-white/10 rounded-2xl p-8 hover:border-electricBlue/50 transition-all duration-300">
+                                <div class="inline-block bg-electricBlue/20 text-electricBlue px-4 py-2 rounded-full font-dm font-bold mb-4">
+                                    2023 - The Breakthrough
+                                </div>
+                                <h3 class="font-sora text-2xl font-bold mb-3">100+ Projects Milestone</h3>
+                                <p class="font-jakarta text-gray-400">
+                                    Hit 100 completed projects. Expanded services to include CRO optimization and email marketing automation. Helped a client increase their conversion rate by 127% through strategic custom development.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="hidden lg:flex w-16 h-16 bg-electricBlue rounded-full items-center justify-center text-2xl font-bold z-10 flex-shrink-0">
+                            📈
+                        </div>
+                        
+                        <div class="lg:w-1/2"></div>
+                    </div>
+                    
+                    <!-- 2024 -->
+                    <div class="timeline-item flex flex-col lg:flex-row gap-8 items-center">
+                        <div class="lg:w-1/2"></div>
+                        
+                        <div class="hidden lg:flex w-16 h-16 bg-electricBlue rounded-full items-center justify-center text-2xl font-bold z-10 flex-shrink-0">
+                            🚀
+                        </div>
+                        
+                        <div class="lg:w-1/2">
+                            <div class="bg-deepBg border border-white/10 rounded-2xl p-8 hover:border-electricBlue/50 transition-all duration-300">
+                                <div class="inline-block bg-electricBlue/20 text-electricBlue px-4 py-2 rounded-full font-dm font-bold mb-4">
+                                    2024 - Scaling Up
+                                </div>
+                                <h3 class="font-sora text-2xl font-bold mb-3">Enterprise Solutions & Speed Mastery</h3>
+                                <p class="font-jakarta text-gray-400">
+                                    Specialized in high-traffic store optimization. Successfully handled Black Friday traffic spikes for multiple enterprise clients. Developed proprietary techniques for sub-2-second load times on product-heavy stores.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 2025 -->
+                    <div class="timeline-item flex flex-col lg:flex-row gap-8 items-center">
+                        <div class="lg:w-1/2 lg:text-right">
+                            <div class="bg-deepBg border border-white/10 rounded-2xl p-8 hover:border-electricBlue/50 transition-all duration-300">
+                                <div class="inline-block bg-electricBlue/20 text-electricBlue px-4 py-2 rounded-full font-dm font-bold mb-4">
+                                    2025 - The Specialist
+                                </div>
+                                <h3 class="font-sora text-2xl font-bold mb-3">200+ Projects & Full-Stack Expertise</h3>
+                                <p class="font-jakarta text-gray-400">
+                                    Reached 200 projects. Became known as "The No-App Specialist" in the Shopify community. Clients from USA, Canada, UK, Australia, and across Europe. Developed complete automation workflows saving clients hundreds of hours monthly.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="hidden lg:flex w-16 h-16 bg-electricBlue rounded-full items-center justify-center text-2xl font-bold z-10 flex-shrink-0">
+                            ⭐
+                        </div>
+                        
+                        <div class="lg:w-1/2"></div>
+                    </div>
+                    
+                    <!-- 2026 -->
+                    <div class="timeline-item flex flex-col lg:flex-row gap-8 items-center">
+                        <div class="lg:w-1/2"></div>
+                        
+                        <div class="hidden lg:flex w-16 h-16 bg-gradient-to-br from-electricBlue to-purple-600 rounded-full items-center justify-center text-2xl font-bold z-10 flex-shrink-0 animate-pulse">
+                            🏆
+                        </div>
+                        
+                        <div class="lg:w-1/2">
+                            <div class="bg-gradient-to-br from-electricBlue/20 to-purple-600/20 border-2 border-electricBlue/50 rounded-2xl p-8 transform hover:scale-105 transition-all duration-300">
+                                <div class="inline-block bg-white text-electricBlue px-4 py-2 rounded-full font-dm font-bold mb-4">
+                                    2026 - Today
+                                </div>
+                                <h3 class="font-sora text-2xl font-bold mb-3">250+ Stores, Endless Possibilities</h3>
+                                <p class="font-jakarta text-gray-400">
+                                    Currently helping merchants worldwide eliminate app dependencies and achieve peak performance. Every project is an opportunity to solve impossible problems and deliver solutions that exceed expectations.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Global Reach Section -->
+    <section class="py-20 bg-deepBg">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-anton text-4xl md:text-6xl mb-6">
+                    TRUSTED <span class="text-electricBlue">WORLDWIDE</span>
+                </h2>
+                <p class="font-jakarta text-xl text-gray-300 max-w-3xl mx-auto">
+                    From small startups to established brands, I've worked with clients across continents.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+                <!-- Country Card 1 -->
+                <div class="bg-charcoal border border-white/10 rounded-xl p-8 text-center hover:border-electricBlue/50 transition-all duration-300 transform hover:scale-105">
+                    <div class="text-5xl mb-4">🇩🇪</div>
+                    <h3 class="font-sora text-xl font-bold mb-2">Germany</h3>
+                    <p class="font-jakarta text-sm text-gray-400">Precision engineering meets fast Shopify stores</p>
+                </div>
+                
+                <!-- Country Card 2 -->
+                <div class="bg-charcoal border border-white/10 rounded-xl p-8 text-center hover:border-electricBlue/50 transition-all duration-300 transform hover:scale-105">
+                    <div class="text-5xl mb-4">🇸🇬</div>
+                    <h3 class="font-sora text-xl font-bold mb-2">Singapore</h3>
+                    <p class="font-jakarta text-sm text-gray-400">High-traffic stores optimized for Asian markets</p>
+                </div>
+                
+                <!-- Country Card 3 -->
+                <div class="bg-charcoal border border-white/10 rounded-xl p-8 text-center hover:border-electricBlue/50 transition-all duration-300 transform hover:scale-105">
+                    <div class="text-5xl mb-4">🇺🇸</div>
+                    <h3 class="font-sora text-xl font-bold mb-2">United States</h3>
+                    <p class="font-jakarta text-sm text-gray-400">Conversion-focused stores for competitive markets</p>
+                </div>
+                
+                <!-- Country Card 4 -->
+                <div class="bg-charcoal border border-white/10 rounded-xl p-8 text-center hover:border-electricBlue/50 transition-all duration-300 transform hover:scale-105">
+                    <div class="text-5xl mb-4">🇨🇦</div>
+                    <h3 class="font-sora text-xl font-bold mb-2">Canada</h3>
+                    <p class="font-jakarta text-sm text-gray-400">Bilingual stores with flawless functionality</p>
+                </div>
+            </div>
+            
+            <!-- Strategic Email Placement - Global Client Pain Point -->
+            <div class="bg-gradient-to-r from-electricBlue/10 to-purple-600/10 border-2 border-electricBlue/30 rounded-2xl p-8 md:p-12 text-center transform hover:scale-105 transition-all duration-300">
+                <h3 class="font-sora text-3xl font-bold mb-4">Need a Developer Who Understands Your Market?</h3>
+                <p class="font-jakarta text-xl text-gray-300 mb-6 max-w-3xl mx-auto">
+                    I've worked across time zones and currencies. Let me bring that global experience to your store.
+                </p>
+                <a href="mailto:faisaluddinbd155@gmail.com" class="email-btn-premium inline-flex items-center gap-3 bg-electricBlue hover:bg-blue-600 text-white font-dm font-bold px-10 py-5 rounded-xl transition-all duration-300 transform hover:scale-110 hover:shadow-2xl hover:shadow-electricBlue/50 group">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                    </svg>
+                    <span>faisaluddinbd155@gmail.com</span>
+                    <svg class="w-5 h-5 transform group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills & Expertise -->
+    <section class="py-20 bg-charcoal">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-anton text-4xl md:text-6xl mb-6">
+                    TECHNICAL <span class="text-electricBlue">EXPERTISE</span>
+                </h2>
+                <p class="font-jakarta text-xl text-gray-300">
+                    The tools and technologies I've mastered over five years.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Skill Category 1 -->
+                <div class="bg-deepBg border border-white/10 rounded-2xl p-8 hover:border-electricBlue/50 transition-all duration-300">
+                    <h3 class="font-sora text-2xl font-bold mb-6 text-electricBlue">Shopify Mastery</h3>
+                    <ul class="space-y-3 font-jakarta text-gray-300">
+                        <li class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-electricBlue flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Liquid templating (Expert level)</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-electricBlue flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Theme development & customization</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-electricBlue flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Shopify API integration</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-electricBlue flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Shopify Plus development</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Skill Category 2 -->
+                <div class="bg-deepBg border border-white/10 rounded-2xl p-8 hover:border-electricBlue/50 transition-all duration-300">
+                    <h3 class="font-sora text-2xl font-bold mb-6 text-electricBlue">Frontend Development</h3>
+                    <ul class="space-y-3 font-jakarta text-gray-300">
+                        <li class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-electricBlue flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>HTML5, CSS3, JavaScript (ES6+)</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-electricBlue flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>React.js & Vue.js</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-electricBlue flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Tailwind CSS, Bootstrap</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-electricBlue flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Responsive design & animations</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Skill Category 3 -->
+                <div class="bg-deepBg border border-white/10 rounded-2xl p-8 hover:border-electricBlue/50 transition-all duration-300">
+                    <h3 class="font-sora text-2xl font-bold mb-6 text-electricBlue">Backend & Integration</h3>
+                    <ul class="space-y-3 font-jakarta text-gray-300">
+                        <li class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-electricBlue flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>RESTful API development</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-electricBlue flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Payment gateway integration</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-electricBlue flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Third-party API integration</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-electricBlue flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Webhook implementation</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Skill Category 4 -->
+                <div class="bg-deepBg border border-white/10 rounded-2xl p-8 hover:border-electricBlue/50 transition-all duration-300">
+                    <h3 class="font-sora text-2xl font-bold mb-6 text-electricBlue">Performance & SEO</h3>
+                    <ul class="space-y-3 font-jakarta text-gray-300">
+                        <li class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-electricBlue flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>PageSpeed optimization</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-electricBlue flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Core Web Vitals mastery</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-electricBlue flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Technical SEO implementation</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-electricBlue flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Lazy loading & code splitting</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Skill Category 5 -->
+                <div class="bg-deepBg border border-white/10 rounded-2xl p-8 hover:border-electricBlue/50 transition-all duration-300">
+                    <h3 class="font-sora text-2xl font-bold mb-6 text-electricBlue">Marketing Automation</h3>
+                    <ul class="space-y-3 font-jakarta text-gray-300">
+                        <li class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-electricBlue flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Email marketing flows</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-electricBlue flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Cart abandonment recovery</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-electricBlue flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Customer segmentation</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-electricBlue flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Workflow automation tools</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Skill Category 6 -->
+                <div class="bg-deepBg border border-white/10 rounded-2xl p-8 hover:border-electricBlue/50 transition-all duration-300">
+                    <h3 class="font-sora text-2xl font-bold mb-6 text-electricBlue">Tools & Workflow</h3>
+                    <ul class="space-y-3 font-jakarta text-gray-300">
+                        <li class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-electricBlue flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Git version control</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-electricBlue flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Figma to Shopify conversion</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-electricBlue flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Google Analytics & Tag Manager</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-electricBlue flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Project management tools</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosophy Section -->
+    <section class="py-20 bg-deepBg">
+        <div class="max-w-5xl mx-auto px-6 lg:px-8 text-center">
+            <h2 class="font-anton text-4xl md:text-6xl mb-12">
+                MY <span class="text-electricBlue">PHILOSOPHY</span>
+            </h2>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-charcoal border border-white/10 rounded-2xl p-8 hover:border-electricBlue/50 transition-all duration-300">
+                    <div class="text-5xl mb-4">💎</div>
+                    <h3 class="font-sora text-xl font-bold mb-3">Quality Over Quantity</h3>
+                    <p class="font-jakarta text-gray-400">
+                        Every line of code matters. I don't cut corners, and I don't ship mediocre work.
+                    </p>
+                </div>
+                
+                <div class="bg-charcoal border border-white/10 rounded-2xl p-8 hover:border-electricBlue/50 transition-all duration-300">
+                    <div class="text-5xl mb-4">🎯</div>
+                    <h3 class="font-sora text-xl font-bold mb-3">Results-Driven</h3>
+                    <p class="font-jakarta text-gray-400">
+                        Pretty code means nothing if it doesn't increase conversions and revenue.
+                    </p>
+                </div>
+                
+                <div class="bg-charcoal border border-white/10 rounded-2xl p-8 hover:border-electricBlue/50 transition-all duration-300">
+                    <div class="text-5xl mb-4">🤝</div>
+                    <h3 class="font-sora text-xl font-bold mb-3">True Partnership</h3>
+                    <p class="font-jakarta text-gray-400">
+                        Your success is my success. I'm invested in your store's long-term growth.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-br from-electricBlue to-blue-700 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
+        </div>
+        
+        <div class="relative z-10 max-w-5xl mx-auto px-6 lg:px-8 text-center">
+            <h2 class="font-anton text-4xl md:text-6xl mb-6 text-white">
+                LET'S BUILD SOMETHING AMAZING TOGETHER
+            </h2>
+            <p class="font-jakarta text-xl md:text-2xl text-white/90 mb-10 max-w-3xl mx-auto">
+                Whether you're starting fresh or need to rescue a slow, app-heavy store, I'm here to help.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="mailto:faisaluddinbd155@gmail.com" class="bg-white text-electricBlue hover:bg-gray-100 font-dm font-bold px-10 py-5 rounded-xl transition-all duration-300 transform hover:scale-110 hover:shadow-2xl inline-flex items-center gap-3 group">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                    </svg>
+                    <span>Email Me Now</span>
+                </a>
+                
+                <a href="https://wa.me/8801602210817" target="_blank" class="bg-transparent border-2 border-white text-white hover:bg-white hover:text-electricBlue font-dm font-bold px-10 py-5 rounded-xl transition-all duration-300 transform hover:scale-110 inline-flex items-center gap-3">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                    </svg>
+                    <span>WhatsApp Chat</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-deepBg py-12 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-12">
+                <!-- Column 1 - Brand -->
+                <div>
+                    <h3 class="font-anton text-2xl mb-4">FAISAL<span class="text-electricBlue">.</span></h3>
+                    <p class="font-jakarta text-sm text-gray-400 mb-4">
+                        Senior Shopify Developer specializing in custom code solutions since 2021.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="https://facebook.com/Faisaluddin155" target="_blank" class="w-10 h-10 bg-white/10 hover:bg-electricBlue rounded-lg flex items-center justify-center transition-all duration-300">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            </svg>
+                        </a>
+                        <a href="https://instagram.com/Faisaluddin155" target="_blank" class="w-10 h-10 bg-white/10 hover:bg-electricBlue rounded-lg flex items-center justify-center transition-all duration-300">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/>
+                            </svg>
+                        </a>
+                        <a href="https://twitter.com/Faisaluddin155" target="_blank" class="w-10 h-10 bg-white/10 hover:bg-electricBlue rounded-lg flex items-center justify-center transition-all duration-300">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Column 2 - Quick Links -->
+                <div>
+                    <h4 class="font-sora font-bold text-lg mb-4">Quick Links</h4>
+                    <ul class="space-y-2 font-jakarta text-sm text-gray-400">
+                        <li><a href="index.html" class="hover:text-electricBlue transition-colors">Home</a></li>
+                        <li><a href="about.html" class="hover:text-electricBlue transition-colors">About Me</a></li>
+                        <li><a href="services.html" class="hover:text-electricBlue transition-colors">Services</a></li>
+                        <li><a href="case-studies.html" class="hover:text-electricBlue transition-colors">Case Studies</a></li>
+                        <li><a href="contact.html" class="hover:text-electricBlue transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 3 - Services -->
+                <div>
+                    <h4 class="font-sora font-bold text-lg mb-4">Services</h4>
+                    <ul class="space-y-2 font-jakarta text-sm text-gray-400">
+                        <li><a href="services.html#custom-themes" class="hover:text-electricBlue transition-colors">Custom Themes</a></li>
+                        <li><a href="services.html#speed" class="hover:text-electricBlue transition-colors">Speed Optimization</a></li>
+                        <li><a href="services.html#cro" class="hover:text-electricBlue transition-colors">CRO Services</a></li>
+                        <li><a href="services.html#automation" class="hover:text-electricBlue transition-colors">Automation</a></li>
+                        <li><a href="services.html#maintenance" class="hover:text-electricBlue transition-colors">Maintenance</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 4 - Contact -->
+                <div>
+                    <h4 class="font-sora font-bold text-lg mb-4">Get In Touch</h4>
+                    <ul class="space-y-3 font-jakarta text-sm text-gray-400">
+                        <li class="flex items-start gap-2">
+                            <svg class="w-5 h-5 text-electricBlue mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            </svg>
+                            <a href="mailto:faisaluddinbd155@gmail.com" class="hover:text-electricBlue transition-colors break-all">faisaluddinbd155@gmail.com</a>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <svg class="w-5 h-5 text-electricBlue mt-0.5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                            </svg>
+                            <a href="https://wa.me/8801602210817" target="_blank" class="hover:text-electricBlue transition-colors">+880 1602-210817</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/10 pt-8 text-center">
+                <p class="font-jakarta text-sm text-gray-400">
+                    © 2026 Faisal Uddin. All rights reserved. Built with custom code, zero apps.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+</html>
